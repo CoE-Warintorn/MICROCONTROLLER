@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\Debug\HW1ASM.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>HW1ASM.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>HW1ASM.map</FILE>
+  <FILE>HW1ASM.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <START><FILE>D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm</FILE><LINE>99</LINE></START>
+  <EXT_INT0_HANDLER><FILE>D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm</FILE><LINE>124</LINE></EXT_INT0_HANDLER>
+  <MAIN><FILE>D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm</FILE><LINE>118</LINE></MAIN>
+  <TB_7SEGMENT><FILE>D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm</FILE><LINE>135</LINE></TB_7SEGMENT>
+ </LABELS>
+</ASSEMBLER_INFO>
