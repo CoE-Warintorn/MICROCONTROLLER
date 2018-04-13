@@ -43,7 +43,7 @@ int main(void)
 				{
 					DDRC	= LOOKUPTB[2*i];
 					PORTC	= LOOKUPTB[2*i + 1];
-					_delay_ms(10);
+					_delay_ms(7);
 				}
 			}
 		}

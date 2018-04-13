@@ -193,8 +193,8 @@ int main(void)
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 116:	8f e3       	ldi	r24, 0x3F	; 63
- 118:	9c e9       	ldi	r25, 0x9C	; 156
+ 116:	8f e5       	ldi	r24, 0x5F	; 95
+ 118:	9d e6       	ldi	r25, 0x6D	; 109
  11a:	01 97       	sbiw	r24, 0x01	; 1
  11c:	f1 f7       	brne	.-4      	; 0x11a <main+0x74>
  11e:	00 c0       	rjmp	.+0      	; 0x120 <main+0x7a>
