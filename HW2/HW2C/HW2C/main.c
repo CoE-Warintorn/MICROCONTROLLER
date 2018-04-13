@@ -11,16 +11,14 @@
 #include <util/delay.h>
 
 unsigned char LOOKUPTB[] = {
-	0b1111011, 0b0000010,
-	0b1111011, 0b0000001,
-	
-	0b1111110, 0b0000100,
-	0b1111110, 0b0000010,
-	
-	0b1111101, 0b0000100,
-	0b1111101, 0b0000001,
-	
-	0b1111111, 0b0000000
+	//	DDRC	PORTC
+	0b1111011, 0b0000010,	//	LED 1
+	0b1111011, 0b0000001,	//	LED 2
+	0b1111110, 0b0000100,	//	LED 3
+	0b1111110, 0b0000010,	//	LED 4
+	0b1111101, 0b0000100,	//	LED 5
+	0b1111101, 0b0000001,	//	LED 6
+	0b1111111, 0b0000000	//	LED OFF
 };
 
 unsigned char SWITCH_V, i, test_bit;
@@ -30,33 +28,34 @@ int main(void)
 	DDRB	= 0xC0;
 	PORTB	= 0x3F;
 	SWITCH_V = PINB;
-	
 	// Set Pin Change Interrupt 
     PCICR	= 0x01;
 	PCMSK0	= 0x3F;
 	sei();
     while (1) 
     {
-		for(i=0; i<6; i++)
+		if(SWITCH_V)
 		{
-			test_bit = SWITCH_V & (1 << i);
-			if(test_bit)
+			for(i=0; i<6; i++)
 			{
-				DDRC	= LOOKUPTB[2*i];
-				PORTC	= LOOKUPTB[2*i + 1];
-				_delay_ms(10);
+				test_bit = SWITCH_V & (1 << i);
+				if(test_bit)
+				{
+					DDRC	= LOOKUPTB[2*i];
+					PORTC	= LOOKUPTB[2*i + 1];
+					_delay_ms(10);
+				}
 			}
 		}
-
+		else
+		{
+			DDRC	= LOOKUPTB[12];
+			PORTC	= LOOKUPTB[13];
+		}
     }
 }
 
 ISR(PCINT0_vect)
 {
 	SWITCH_V = PINB;
-	if(!SWITCH_V)
-	{
-		DDRC	= LOOKUPTB[12];
-		PORTC	= LOOKUPTB[13];
-	}
 }
