@@ -17,8 +17,7 @@ unsigned char LOOKUPTB[] = {
 	0b1111110, 0b0000100,	//	LED 3
 	0b1111110, 0b0000010,	//	LED 4
 	0b1111101, 0b0000100,	//	LED 5
-	0b1111101, 0b0000001,	//	LED 6
-	0b1111111, 0b0000000	//	LED OFF
+	0b1111101, 0b0000001	//	LED 6
 };
 
 unsigned char SWITCH_V, i, test_bit;
@@ -49,8 +48,8 @@ int main(void)
 		}
 		else
 		{
-			DDRC	= LOOKUPTB[12];
-			PORTC	= LOOKUPTB[13];
+			DDRC	= 0xFF;
+			PORTC	= 0x00;
 		}
     }
 }
