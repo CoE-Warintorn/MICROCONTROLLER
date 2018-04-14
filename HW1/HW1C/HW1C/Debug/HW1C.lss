@@ -118,10 +118,10 @@ int main(void)
 	PORTD = 0xFF;
   b2:	8f ef       	ldi	r24, 0xFF	; 255
   b4:	8b b9       	out	0x0b, r24	; 11
-	EICRA = (1 << ISC01) | (1 << ISC00);	// Falling Edge Interrupt
-  b6:	83 e0       	ldi	r24, 0x03	; 3
+	EICRA = (1 << ISC01);	// Falling Edge Interrupt
+  b6:	82 e0       	ldi	r24, 0x02	; 2
   b8:	80 93 69 00 	sts	0x0069, r24	; 0x800069 <__TEXT_REGION_LENGTH__+0x7e0069>
-	EIMSK = 1 << INT0;						// Enable INT0
+	EIMSK = 1 << INT0;		// Enable INT0
   bc:	81 e0       	ldi	r24, 0x01	; 1
   be:	8d bb       	out	0x1d, r24	; 29
 	sei();

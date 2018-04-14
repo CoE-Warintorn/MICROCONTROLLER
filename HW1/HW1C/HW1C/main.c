@@ -25,8 +25,8 @@ int main(void)
 	PORTB = 0x0F;
 	DDRD = 0xFB;
 	PORTD = 0xFF;
-	EICRA = (1 << ISC01) | (1 << ISC00);	// Falling Edge Interrupt
-	EIMSK = 1 << INT0;						// Enable INT0
+	EICRA = (1 << ISC01);	// Falling Edge Interrupt
+	EIMSK = 1 << INT0;		// Enable INT0
 	sei();
     while (1) 
     {
