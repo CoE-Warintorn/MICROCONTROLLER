@@ -12,8 +12,8 @@ int main(void)
 {
 	DDRC	= 0x01;	// set PC0 as output
 	TIMSK1	= 0x02;	// compare match A interrupt enable
-	TCCR1B	= 0x0C;	// No prescaler
-	TCCR1A	= 0x02;	// CTC mode
+	TCCR1B	= 0x09;	// No prescaler
+	TCCR1A	= 0x00;	// CTC mode
 	cli();
 	TCNT1	= 0;
 	OCR1A	= 3571;

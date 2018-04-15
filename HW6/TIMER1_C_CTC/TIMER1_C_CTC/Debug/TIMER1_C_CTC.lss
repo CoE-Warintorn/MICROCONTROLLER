@@ -83,11 +83,11 @@ int main(void)
 	TIMSK1	= 0x02;	// compare match A interrupt enable
   84:	82 e0       	ldi	r24, 0x02	; 2
   86:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7e006f>
-	TCCR1B	= 0x0C;	// No prescaler
-  8a:	9c e0       	ldi	r25, 0x0C	; 12
-  8c:	90 93 81 00 	sts	0x0081, r25	; 0x800081 <__TEXT_REGION_LENGTH__+0x7e0081>
-	TCCR1A	= 0x02;	// CTC mode
-  90:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
+	TCCR1B	= 0x09;	// No prescaler
+  8a:	89 e0       	ldi	r24, 0x09	; 9
+  8c:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7e0081>
+	TCCR1A	= 0x00;	// CTC mode
+  90:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
 	cli();
   94:	f8 94       	cli
 	TCNT1	= 0;
