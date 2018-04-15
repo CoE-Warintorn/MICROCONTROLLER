@@ -30,9 +30,6 @@ MAIN:
 
 
 TIMER0_OVF_HANDLER:
-	nop
-	nop
-	nop
 	ldi		tmp, 189
 	out		TCNT0, tmp
 	in		tmp, PORTC
