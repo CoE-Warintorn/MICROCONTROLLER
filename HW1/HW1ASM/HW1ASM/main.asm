@@ -16,7 +16,7 @@
 .DEF		TC			= r24
 
 .MACRO DELAY
-	ldi		TC, 1
+	ldi		TC, 0x0F
 LC:	ldi		TB, 0xFF
 LB:	ldi		TA, 0xFF
 LA:	dec		TA
@@ -25,7 +25,6 @@ LA:	dec		TA
 	brne	LB
 	dec		TC
 	brne	LC
-
 .ENDMACRO
 
 .MACRO COMPARE_AND_BRANCH_IF_KEYPRESSED
@@ -59,6 +58,7 @@ skip:
 	ldi		ZL, low(TB_7SEGMENT * 2)
 	ldi		ZH, high(TB_7SEGMENT * 2)
 	out		PORTB, tmp
+	nop
 	nop
 	in		SWITCH_V, PINB
 	andi	SWITCH_V, 0x0F
@@ -116,9 +116,6 @@ START:
 	sei
 
 MAIN: 
-	ldi		tmp, 0x0F
-	out		PORTB, tmp
-	sei
 	rjmp	MAIN
 
 EXT_INT0_HANDLER:
@@ -127,6 +124,8 @@ EXT_INT0_HANDLER:
 	in		tmp, SREG
 	push	tmp
 	READ_KEY_PAD
+	ldi		tmp, 0x0F
+	out		PORTB, tmp
 	pop		tmp
 	out		SREG, tmp
 	pop		tmp

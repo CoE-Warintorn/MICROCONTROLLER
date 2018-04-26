@@ -279,13 +279,13 @@ END GROUP
                 0x000000a2                __vector_20
                 0x000000a6                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x000000a6       0x24 main.o
+ .text.main     0x000000a6       0x1e main.o
                 0x000000a6                main
- .text.blink    0x000000ca       0x48 main.o
-                0x000000ca                blink
+ .text.blink    0x000000c4       0x48 main.o
+                0x000000c4                blink
  .text.__vector_1
-                0x00000112       0xb2 main.o
-                0x00000112                __vector_1
+                0x0000010c       0xb8 main.o
+                0x0000010c                __vector_1
                 0x000001c4                . = ALIGN (0x2)
  *(.fini9)
  .fini9         0x000001c4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -428,20 +428,20 @@ END GROUP
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.2.209/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_abbrev  0x000005a2      0x177 main.o
 
-.debug_line     0x00000000      0x338
+.debug_line     0x00000000      0x32e
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x133 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.2.209/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000133      0x205 main.o
+ .debug_line    0x00000133      0x1fb main.o
 
 .debug_frame    0x00000000       0xa4
  *(.debug_frame)
  .debug_frame   0x00000000       0xa4 main.o
 
-.debug_str      0x00000000      0x3b9
+.debug_str      0x00000000      0x3b5
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.2.209/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x1b1 main.o
-                                0x1e5 (size before relaxing)
+ .debug_str     0x00000208      0x1ad main.o
+                                0x1e1 (size before relaxing)
 
 .debug_loc      0x00000000      0x1cf
  *(.debug_loc)

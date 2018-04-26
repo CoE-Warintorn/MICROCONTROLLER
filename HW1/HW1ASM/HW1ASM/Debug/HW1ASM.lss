@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.7  D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm Mon Apr 09 00:44:12 2018
+AVRASM ver. 2.2.7  D:\CoE\2560-2\242-309 Microcontroller\Work\HW1\HW1ASM\HW1ASM\main.asm Tue Apr 24 17:11:04 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
-D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
+D:\CoE\2560-2\242-309 Microcontroller\Work\HW1\HW1ASM\HW1ASM\main.asm(7): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
-D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
+D:\CoE\2560-2\242-309 Microcontroller\Work\HW1\HW1ASM\HW1ASM\main.asm(7): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
                                  
                                  ;
                                  
@@ -1047,7 +1047,7 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
                                  .DEF		TC			= r24
                                  
                                  .MACRO DELAY
-                                 	ldi		TC, 1
+                                 	ldi		TC, 0x0F
                                  LC:	ldi		TB, 0xFF
                                  LB:	ldi		TA, 0xFF
                                  LA:	dec		TA
@@ -1056,7 +1056,6 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
                                  	brne	LB
                                  	dec		TC
                                  	brne	LC
-                                 
                                  .ENDMACRO
                                  
                                  .MACRO COMPARE_AND_BRANCH_IF_KEYPRESSED
@@ -1090,6 +1089,7 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
                                  	ldi		ZL, low(TB_7SEGMENT * 2)
                                  	ldi		ZH, high(TB_7SEGMENT * 2)
                                  	out		PORTB, tmp
+                                 	nop
                                  	nop
                                  	in		SWITCH_V, PINB
                                  	andi	SWITCH_V, 0x0F
@@ -1125,7 +1125,7 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
                                  .CSEG
                                  .ORG 0x0000
 000000 940c 0004                 	jmp	START
-000002 940c 001a                 	jmp	EXT_INT0_HANDLER
+000002 940c 0017                 	jmp	EXT_INT0_HANDLER
                                  
                                  START:
 000004 ef1f                      	ldi		r17, LOW(RAMEND)   ; initialize stackpointer
@@ -1147,123 +1147,123 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
 000015 9478                      	sei
                                  
                                  MAIN: 
-000016 e00f                      	ldi		tmp, 0x0F
-000017 b905                      	out		PORTB, tmp
-000018 9478                      	sei
-000019 cffc                      	rjmp	MAIN
+000016 cfff                      	rjmp	MAIN
                                  
                                  EXT_INT0_HANDLER:
-00001a 94f8                      	cli
-00001b 930f                      	push	tmp
-00001c b70f                      	in		tmp, SREG
-00001d 930f                      	push	tmp
-00001e eb0f
-00001f e010
-000020 e7e6
-000021 e0f1
-000022 b905
-000023 0000
-000024 b123
-000025 702f
-000026 0f21
-000027 5027
-000028 e000
-000029 0fe2
-00002a 1ff0
-00002b 9104
-00002c 3f0f
-00002d f119
-00002e e040
-00002f 2f50
-000030 705f
-000031 7f00
+000017 94f8                      	cli
+000018 930f                      	push	tmp
+000019 b70f                      	in		tmp, SREG
+00001a 930f                      	push	tmp
+00001b eb0f
+00001c e010
+00001d e7ea
+00001e e0f1
+00001f b905
+000020 0000
+000021 0000
+000022 b123
+000023 702f
+000024 0f21
+000025 5027
+000026 e000
+000027 0fe2
+000028 1ff0
+000029 9104
+00002a 3f0f
+00002b f119
+00002c e040
+00002d 2f50
+00002e 705f
+00002f 7f00
+000030 9506
+000031 9506
 000032 9506
 000033 9506
-000034 9506
-000035 9506
-000036 b13b
-000037 1745
-000038 f0c1
-000039 9543
-00003a 2730
-00003b b93b
-00003c e081
-00003d ef7f
-00003e ef6f
-00003f 956a
-000040 f7f1
-000041 957a
-000042 f7d9
-000043 958a
-000044 f7c1
-000045 2730
-000046 b93b
-000047 e081
-000048 ef7f
-000049 ef6f
-00004a 956a
-00004b f7f1
-00004c 957a
-00004d f7d9
-00004e 958a
-00004f f7c1
-000050 cfe6
-000051 ed0f
-000052 e019
-000053 e7e6
-000054 e0f1
-000055 b905
-000056 0000
-000057 b123
-000058 702f
-000059 0f21
-00005a 5027
-00005b e000
-00005c 0fe2
-00005d 1ff0
-00005e 9104
-00005f 3f0f
-000060 f119
-000061 e040
-000062 2f50
-000063 705f
-000064 7f00
+000034 b13b
+000035 1745
+000036 f0c1
+000037 9543
+000038 2730
+000039 b93b
+00003a e08f
+00003b ef7f
+00003c ef6f
+00003d 956a
+00003e f7f1
+00003f 957a
+000040 f7d9
+000041 958a
+000042 f7c1
+000043 2730
+000044 b93b
+000045 e08f
+000046 ef7f
+000047 ef6f
+000048 956a
+000049 f7f1
+00004a 957a
+00004b f7d9
+00004c 958a
+00004d f7c1
+00004e cfe6
+00004f ed0f
+000050 e019
+000051 e7ea
+000052 e0f1
+000053 b905
+000054 0000
+000055 0000
+000056 b123
+000057 702f
+000058 0f21
+000059 5027
+00005a e000
+00005b 0fe2
+00005c 1ff0
+00005d 9104
+00005e 3f0f
+00005f f119
+000060 e040
+000061 2f50
+000062 705f
+000063 7f00
+000064 9506
 000065 9506
 000066 9506
 000067 9506
-000068 9506
-000069 b13b
-00006a 1745
-00006b f0c1
-00006c 9543
-00006d 2730
-00006e b93b
-00006f e081
-000070 ef7f
-000071 ef6f
-000072 956a
-000073 f7f1
-000074 957a
-000075 f7d9
-000076 958a
-000077 f7c1
-000078 2730
-000079 b93b
-00007a e081
-00007b ef7f
-00007c ef6f
-00007d 956a
-00007e f7f1
-00007f 957a
-000080 f7d9
-000081 958a
-000082 f7c1
-000083 cfe6
-000084 ee0f
-000085 e112
-000086 e7e6
-000087 e0f1
-000088 b905
+000068 b13b
+000069 1745
+00006a f0c1
+00006b 9543
+00006c 2730
+00006d b93b
+00006e e08f
+00006f ef7f
+000070 ef6f
+000071 956a
+000072 f7f1
+000073 957a
+000074 f7d9
+000075 958a
+000076 f7c1
+000077 2730
+000078 b93b
+000079 e08f
+00007a ef7f
+00007b ef6f
+00007c 956a
+00007d f7f1
+00007e 957a
+00007f f7d9
+000080 958a
+000081 f7c1
+000082 cfe6
+000083 ee0f
+000084 e112
+000085 e7ea
+000086 e0f1
+000087 b905
+000088 0000
 000089 0000
 00008a b123
 00008b 702f
@@ -1289,7 +1289,7 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
 00009f 9543
 0000a0 2730
 0000a1 b93b
-0000a2 e081
+0000a2 e08f
 0000a3 ef7f
 0000a4 ef6f
 0000a5 956a
@@ -1300,7 +1300,7 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
 0000aa f7c1
 0000ab 2730
 0000ac b93b
-0000ad e081
+0000ad e08f
 0000ae ef7f
 0000af ef6f
 0000b0 956a
@@ -1310,25 +1310,27 @@ D:\CoE\2560-2\242-309 Microcontroller\Homework\HW1\HW1ASM\HW1ASM\main.asm(7): In
 0000b4 958a
 0000b5 f7c1
 0000b6 cfe6                      	READ_KEY_PAD
-0000b7 910f                      	pop		tmp
-0000b8 bf0f                      	out		SREG, tmp
+0000b7 e00f                      	ldi		tmp, 0x0F
+0000b8 b905                      	out		PORTB, tmp
 0000b9 910f                      	pop		tmp
-0000ba 9518                      	reti
+0000ba bf0f                      	out		SREG, tmp
+0000bb 910f                      	pop		tmp
+0000bc 9518                      	reti
                                  
                                  TB_7SEGMENT:
-0000bb ff21
-0000bc ffff
-0000bd ff24
-0000be 2a27
-0000bf 22ff
-0000c0 ffff
-0000c1 25ff                      	.DB		0x21, 0xFF, 0xFF, 0xFF, 0x24, 0xFF, 0x27, 0x2A, 0xFF, 0x22, 0xFF, 0xFF, 0xFF, 0x25
-0000c2 28ff
-0000c3 ff15
-0000c4 ff23
-0000c5 ffff
-0000c6 ff26
-0000c7 2b29
+0000bd ff21
+0000be ffff
+0000bf ff24
+0000c0 2a27
+0000c1 22ff
+0000c2 ffff
+0000c3 25ff                      	.DB		0x21, 0xFF, 0xFF, 0xFF, 0x24, 0xFF, 0x27, 0x2A, 0xFF, 0x22, 0xFF, 0xFF, 0xFF, 0x25
+0000c4 28ff
+0000c5 ff15
+0000c6 ff23
+0000c7 ffff
+0000c8 ff26
+0000c9 2b29
 
 
 RESOURCE USE INFORMATION
@@ -1366,11 +1368,11 @@ cpi   :   3 cpse  :   0 dec   :  18 eor   :   6 fmul  :   0 fmuls :   0
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   7 inc   :   3 jmp   :   2 
 ld    :   0 ldd   :   0 ldi   :  45 lds   :   0 lpm   :   6 lsl   :   0 
 lsr   :  12 mov   :   3 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   3 or    :   0 ori   :   0 out   :  18 pop   :   2 
+neg   :   0 nop   :   6 or    :   0 ori   :   0 out   :  18 pop   :   2 
 push  :   2 rcall :   0 ret   :   0 reti  :   1 rjmp  :   4 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
-sei   :   2 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
+sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   1 
 sub   :   0 subi  :   3 swap  :   0 tst   :   0 wdr   :   0 
 Instructions used: 26 out of 113 (23.0%)
@@ -1378,7 +1380,7 @@ Instructions used: 26 out of 113 (23.0%)
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000192    374     28    402   32768   1.2%
+[.cseg] 0x000000 0x000196    378     28    406   32768   1.2%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

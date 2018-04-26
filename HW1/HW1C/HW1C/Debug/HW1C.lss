@@ -19,22 +19,22 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00000719  00000000  00000000  00000b3d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000338  00000000  00000000  00001256  2**0
+  8 .debug_line   0000032e  00000000  00000000  00001256  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000000a4  00000000  00000000  00001590  2**2
+  9 .debug_frame  000000a4  00000000  00000000  00001584  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000003b9  00000000  00000000  00001634  2**0
+ 10 .debug_str    000003b5  00000000  00000000  00001628  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000001cf  00000000  00000000  000019ed  2**0
+ 11 .debug_loc    000001cf  00000000  00000000  000019dd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000020  00000000  00000000  00001bbc  2**0
+ 12 .debug_ranges 00000020  00000000  00000000  00001bac  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
-   4:	0c 94 89 00 	jmp	0x112	; 0x112 <__vector_1>
+   4:	0c 94 86 00 	jmp	0x10c	; 0x10c <__vector_1>
    8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
    c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
@@ -126,165 +126,163 @@ int main(void)
   be:	8d bb       	out	0x1d, r24	; 29
 	sei();
   c0:	78 94       	sei
-    while (1) 
-    {
-		PORTB = 0x0F;
-  c2:	8f e0       	ldi	r24, 0x0F	; 15
-  c4:	85 b9       	out	0x05, r24	; 5
-		sei();
-  c6:	78 94       	sei
-  c8:	fd cf       	rjmp	.-6      	; 0xc4 <main+0x1e>
+  c2:	ff cf       	rjmp	.-2      	; 0xc2 <main+0x1c>
 
-000000ca <blink>:
-	}
+000000c4 <blink>:
+	PORTB = 0x0F;
 }
 
 void blink(unsigned char num, unsigned char p )
 {
 	for(unsigned char i=0; i<num; i++)
-  ca:	88 23       	and	r24, r24
-  cc:	09 f1       	breq	.+66     	; 0x110 <blink+0x46>
+  c4:	88 23       	and	r24, r24
+  c6:	09 f1       	breq	.+66     	; 0x10a <blink+0x46>
 	{
 		PORTD ^= (0x01 << p);
-  ce:	31 e0       	ldi	r19, 0x01	; 1
-  d0:	01 c0       	rjmp	.+2      	; 0xd4 <blink+0xa>
-  d2:	33 0f       	add	r19, r19
-  d4:	6a 95       	dec	r22
-  d6:	ea f7       	brpl	.-6      	; 0xd2 <blink+0x8>
-  d8:	20 e0       	ldi	r18, 0x00	; 0
-  da:	9b b1       	in	r25, 0x0b	; 11
-  dc:	93 27       	eor	r25, r19
-  de:	9b b9       	out	0x0b, r25	; 11
+  c8:	31 e0       	ldi	r19, 0x01	; 1
+  ca:	01 c0       	rjmp	.+2      	; 0xce <blink+0xa>
+  cc:	33 0f       	add	r19, r19
+  ce:	6a 95       	dec	r22
+  d0:	ea f7       	brpl	.-6      	; 0xcc <blink+0x8>
+  d2:	20 e0       	ldi	r18, 0x00	; 0
+  d4:	9b b1       	in	r25, 0x0b	; 11
+  d6:	93 27       	eor	r25, r19
+  d8:	9b b9       	out	0x0b, r25	; 11
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  e0:	4f e5       	ldi	r20, 0x5F	; 95
-  e2:	5a ee       	ldi	r21, 0xEA	; 234
-  e4:	90 e0       	ldi	r25, 0x00	; 0
-  e6:	41 50       	subi	r20, 0x01	; 1
-  e8:	50 40       	sbci	r21, 0x00	; 0
-  ea:	90 40       	sbci	r25, 0x00	; 0
-  ec:	e1 f7       	brne	.-8      	; 0xe6 <blink+0x1c>
-  ee:	00 c0       	rjmp	.+0      	; 0xf0 <blink+0x26>
-  f0:	00 00       	nop
+  da:	4f ef       	ldi	r20, 0xFF	; 255
+  dc:	55 ea       	ldi	r21, 0xA5	; 165
+  de:	9e e0       	ldi	r25, 0x0E	; 14
+  e0:	41 50       	subi	r20, 0x01	; 1
+  e2:	50 40       	sbci	r21, 0x00	; 0
+  e4:	90 40       	sbci	r25, 0x00	; 0
+  e6:	e1 f7       	brne	.-8      	; 0xe0 <blink+0x1c>
+  e8:	00 c0       	rjmp	.+0      	; 0xea <blink+0x26>
+  ea:	00 00       	nop
 		_delay_ms(300);
 		PORTD ^= (0x01 << p);
-  f2:	9b b1       	in	r25, 0x0b	; 11
-  f4:	93 27       	eor	r25, r19
-  f6:	9b b9       	out	0x0b, r25	; 11
-  f8:	4f e5       	ldi	r20, 0x5F	; 95
-  fa:	5a ee       	ldi	r21, 0xEA	; 234
-  fc:	90 e0       	ldi	r25, 0x00	; 0
-  fe:	41 50       	subi	r20, 0x01	; 1
- 100:	50 40       	sbci	r21, 0x00	; 0
- 102:	90 40       	sbci	r25, 0x00	; 0
- 104:	e1 f7       	brne	.-8      	; 0xfe <blink+0x34>
- 106:	00 c0       	rjmp	.+0      	; 0x108 <blink+0x3e>
- 108:	00 00       	nop
-	}
+  ec:	9b b1       	in	r25, 0x0b	; 11
+  ee:	93 27       	eor	r25, r19
+  f0:	9b b9       	out	0x0b, r25	; 11
+  f2:	4f ef       	ldi	r20, 0xFF	; 255
+  f4:	55 ea       	ldi	r21, 0xA5	; 165
+  f6:	9e e0       	ldi	r25, 0x0E	; 14
+  f8:	41 50       	subi	r20, 0x01	; 1
+  fa:	50 40       	sbci	r21, 0x00	; 0
+  fc:	90 40       	sbci	r25, 0x00	; 0
+  fe:	e1 f7       	brne	.-8      	; 0xf8 <blink+0x34>
+ 100:	00 c0       	rjmp	.+0      	; 0x102 <blink+0x3e>
+ 102:	00 00       	nop
+	PORTB = 0x0F;
 }
 
 void blink(unsigned char num, unsigned char p )
 {
 	for(unsigned char i=0; i<num; i++)
- 10a:	2f 5f       	subi	r18, 0xFF	; 255
- 10c:	82 13       	cpse	r24, r18
- 10e:	e5 cf       	rjmp	.-54     	; 0xda <blink+0x10>
- 110:	08 95       	ret
+ 104:	2f 5f       	subi	r18, 0xFF	; 255
+ 106:	82 13       	cpse	r24, r18
+ 108:	e5 cf       	rjmp	.-54     	; 0xd4 <blink+0x10>
+ 10a:	08 95       	ret
 
-00000112 <__vector_1>:
-		sei();
+0000010c <__vector_1>:
+    {
     }
 }
 
 ISR(INT0_vect)
 {
- 112:	1f 92       	push	r1
- 114:	0f 92       	push	r0
- 116:	0f b6       	in	r0, 0x3f	; 63
- 118:	0f 92       	push	r0
- 11a:	11 24       	eor	r1, r1
- 11c:	ff 92       	push	r15
- 11e:	0f 93       	push	r16
- 120:	1f 93       	push	r17
- 122:	2f 93       	push	r18
- 124:	3f 93       	push	r19
- 126:	4f 93       	push	r20
- 128:	5f 93       	push	r21
- 12a:	6f 93       	push	r22
- 12c:	7f 93       	push	r23
- 12e:	8f 93       	push	r24
- 130:	9f 93       	push	r25
- 132:	af 93       	push	r26
- 134:	bf 93       	push	r27
- 136:	cf 93       	push	r28
- 138:	df 93       	push	r29
- 13a:	ef 93       	push	r30
- 13c:	ff 93       	push	r31
-	cli();
- 13e:	f8 94       	cli
- 140:	f1 2c       	mov	r15, r1
- 142:	c6 e0       	ldi	r28, 0x06	; 6
- 144:	d0 e0       	ldi	r29, 0x00	; 0
+ 10c:	1f 92       	push	r1
+ 10e:	0f 92       	push	r0
+ 110:	0f b6       	in	r0, 0x3f	; 63
+ 112:	0f 92       	push	r0
+ 114:	11 24       	eor	r1, r1
+ 116:	ff 92       	push	r15
+ 118:	0f 93       	push	r16
+ 11a:	1f 93       	push	r17
+ 11c:	2f 93       	push	r18
+ 11e:	3f 93       	push	r19
+ 120:	4f 93       	push	r20
+ 122:	5f 93       	push	r21
+ 124:	6f 93       	push	r22
+ 126:	7f 93       	push	r23
+ 128:	8f 93       	push	r24
+ 12a:	9f 93       	push	r25
+ 12c:	af 93       	push	r26
+ 12e:	bf 93       	push	r27
+ 130:	cf 93       	push	r28
+ 132:	df 93       	push	r29
+ 134:	ef 93       	push	r30
+ 136:	ff 93       	push	r31
+ 138:	f1 2c       	mov	r15, r1
+ 13a:	c6 e0       	ldi	r28, 0x06	; 6
+ 13c:	d0 e0       	ldi	r29, 0x00	; 0
 	for(unsigned char i=0; i<3; i++)
 	{
 		PORTB = ~(1 << (6 - i));
- 146:	01 e0       	ldi	r16, 0x01	; 1
- 148:	10 e0       	ldi	r17, 0x00	; 0
- 14a:	c8 01       	movw	r24, r16
- 14c:	0c 2e       	mov	r0, r28
- 14e:	02 c0       	rjmp	.+4      	; 0x154 <__vector_1+0x42>
- 150:	88 0f       	add	r24, r24
- 152:	99 1f       	adc	r25, r25
- 154:	0a 94       	dec	r0
- 156:	e2 f7       	brpl	.-8      	; 0x150 <__vector_1+0x3e>
- 158:	80 95       	com	r24
- 15a:	85 b9       	out	0x05, r24	; 5
+ 13e:	01 e0       	ldi	r16, 0x01	; 1
+ 140:	10 e0       	ldi	r17, 0x00	; 0
+ 142:	c8 01       	movw	r24, r16
+ 144:	0c 2e       	mov	r0, r28
+ 146:	02 c0       	rjmp	.+4      	; 0x14c <__vector_1+0x40>
+ 148:	88 0f       	add	r24, r24
+ 14a:	99 1f       	adc	r25, r25
+ 14c:	0a 94       	dec	r0
+ 14e:	e2 f7       	brpl	.-8      	; 0x148 <__vector_1+0x3c>
+ 150:	80 95       	com	r24
+ 152:	85 b9       	out	0x05, r24	; 5
+		__asm__ __volatile__ ("nop");
+ 154:	00 00       	nop
+		__asm__ __volatile__ ("nop");
+ 156:	00 00       	nop
 		ROW = PINB & 0x0F;
- 15c:	e3 b1       	in	r30, 0x03	; 3
+ 158:	e3 b1       	in	r30, 0x03	; 3
 		ROW = ROW - 7 + (i * 9);
- 15e:	ef 70       	andi	r30, 0x0F	; 15
- 160:	e7 50       	subi	r30, 0x07	; 7
- 162:	ef 0d       	add	r30, r15
- 164:	e0 93 1d 01 	sts	0x011D, r30	; 0x80011d <ROW>
+ 15a:	ef 70       	andi	r30, 0x0F	; 15
+ 15c:	e7 50       	subi	r30, 0x07	; 7
+ 15e:	ef 0d       	add	r30, r15
+ 160:	e0 93 1d 01 	sts	0x011D, r30	; 0x80011d <ROW>
 		SWITCH_V = LOOKUPTB[ROW];
- 168:	f0 e0       	ldi	r31, 0x00	; 0
- 16a:	e0 50       	subi	r30, 0x00	; 0
- 16c:	ff 4f       	sbci	r31, 0xFF	; 255
- 16e:	80 81       	ld	r24, Z
- 170:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <__data_end>
+ 164:	f0 e0       	ldi	r31, 0x00	; 0
+ 166:	e0 50       	subi	r30, 0x00	; 0
+ 168:	ff 4f       	sbci	r31, 0xFF	; 255
+ 16a:	80 81       	ld	r24, Z
+ 16c:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <__data_end>
 		if(SWITCH_V == 0x00)		blink(5, 0);
- 174:	81 11       	cpse	r24, r1
- 176:	05 c0       	rjmp	.+10     	; 0x182 <__vector_1+0x70>
- 178:	60 e0       	ldi	r22, 0x00	; 0
- 17a:	85 e0       	ldi	r24, 0x05	; 5
- 17c:	0e 94 65 00 	call	0xca	; 0xca <blink>
- 180:	05 c0       	rjmp	.+10     	; 0x18c <__vector_1+0x7a>
+ 170:	81 11       	cpse	r24, r1
+ 172:	05 c0       	rjmp	.+10     	; 0x17e <__vector_1+0x72>
+ 174:	60 e0       	ldi	r22, 0x00	; 0
+ 176:	85 e0       	ldi	r24, 0x05	; 5
+ 178:	0e 94 62 00 	call	0xc4	; 0xc4 <blink>
+ 17c:	05 c0       	rjmp	.+10     	; 0x188 <__vector_1+0x7c>
 		else if(SWITCH_V != 0xFF)	blink(SWITCH_V, 1);
- 182:	8f 3f       	cpi	r24, 0xFF	; 255
- 184:	19 f0       	breq	.+6      	; 0x18c <__vector_1+0x7a>
- 186:	61 e0       	ldi	r22, 0x01	; 1
- 188:	0e 94 65 00 	call	0xca	; 0xca <blink>
- 18c:	21 97       	sbiw	r28, 0x01	; 1
- 18e:	89 e0       	ldi	r24, 0x09	; 9
- 190:	f8 0e       	add	r15, r24
+ 17e:	8f 3f       	cpi	r24, 0xFF	; 255
+ 180:	19 f0       	breq	.+6      	; 0x188 <__vector_1+0x7c>
+ 182:	61 e0       	ldi	r22, 0x01	; 1
+ 184:	0e 94 62 00 	call	0xc4	; 0xc4 <blink>
+ 188:	21 97       	sbiw	r28, 0x01	; 1
+ 18a:	89 e0       	ldi	r24, 0x09	; 9
+ 18c:	f8 0e       	add	r15, r24
+    }
 }
 
 ISR(INT0_vect)
 {
-	cli();
 	for(unsigned char i=0; i<3; i++)
- 192:	2b e1       	ldi	r18, 0x1B	; 27
- 194:	f2 12       	cpse	r15, r18
- 196:	d9 cf       	rjmp	.-78     	; 0x14a <__vector_1+0x38>
+ 18e:	2b e1       	ldi	r18, 0x1B	; 27
+ 190:	f2 12       	cpse	r15, r18
+ 192:	d7 cf       	rjmp	.-82     	; 0x142 <__vector_1+0x36>
+		ROW = ROW - 7 + (i * 9);
 		SWITCH_V = LOOKUPTB[ROW];
 		if(SWITCH_V == 0x00)		blink(5, 0);
 		else if(SWITCH_V != 0xFF)	blink(SWITCH_V, 1);
-		
 	}
+	PORTB = 0x0F;
+ 194:	8f e0       	ldi	r24, 0x0F	; 15
+ 196:	85 b9       	out	0x05, r24	; 5
 }
  198:	ff 91       	pop	r31
  19a:	ef 91       	pop	r30

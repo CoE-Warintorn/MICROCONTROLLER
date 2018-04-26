@@ -7,7 +7,7 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#define F_CPU 1000000ul
+#define F_CPU 16000000
 #include <util/delay.h>
 
 unsigned char ROW, SWITCH_V;
@@ -30,24 +30,23 @@ int main(void)
 	sei();
     while (1) 
     {
-		PORTB = 0x0F;
-		sei();
     }
 }
 
 ISR(INT0_vect)
 {
-	cli();
 	for(unsigned char i=0; i<3; i++)
 	{
 		PORTB = ~(1 << (6 - i));
+		__asm__ __volatile__ ("nop");
+		__asm__ __volatile__ ("nop");
 		ROW = PINB & 0x0F;
 		ROW = ROW - 7 + (i * 9);
 		SWITCH_V = LOOKUPTB[ROW];
 		if(SWITCH_V == 0x00)		blink(5, 0);
 		else if(SWITCH_V != 0xFF)	blink(SWITCH_V, 1);
-		
 	}
+	PORTB = 0x0F;
 }
 
 void blink(unsigned char num, unsigned char p )
