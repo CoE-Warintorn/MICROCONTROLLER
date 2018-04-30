@@ -1,5 +1,5 @@
 
-2pulse90diffphase.elf:     file format elf32-avr
+2Pulse_C.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -21,11 +21,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_frame  0000006c  00000000  00000000  000010fc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000037f  00000000  00000000  00001168  2**0
+  9 .debug_str    00000374  00000000  00000000  00001168  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000092  00000000  00000000  000014e7  2**0
+ 10 .debug_loc    00000092  00000000  00000000  000014dc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000020  00000000  00000000  00001579  2**0
+ 11 .debug_ranges 00000020  00000000  00000000  0000156e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -86,14 +86,14 @@ int main(void)
 	TCNT1 = 0;
   86:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7e0085>
   8a:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7e0084>
-	OCR1A = 39999;	// Pulse 1
-  8e:	8f e3       	ldi	r24, 0x3F	; 63
-  90:	9c e9       	ldi	r25, 0x9C	; 156
+	OCR1A = 19999;	// Pulse 1
+  8e:	8f e1       	ldi	r24, 0x1F	; 31
+  90:	9e e4       	ldi	r25, 0x4E	; 78
   92:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
   96:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
-	OCR1B = 20000;	// Pulse 2 diff 90
-  9a:	80 e2       	ldi	r24, 0x20	; 32
-  9c:	9e e4       	ldi	r25, 0x4E	; 78
+	OCR1B = 10000;	// Pulse 2 diff 90
+  9a:	80 e1       	ldi	r24, 0x10	; 16
+  9c:	97 e2       	ldi	r25, 0x27	; 39
   9e:	90 93 8b 00 	sts	0x008B, r25	; 0x80008b <__TEXT_REGION_LENGTH__+0x7e008b>
   a2:	80 93 8a 00 	sts	0x008A, r24	; 0x80008a <__TEXT_REGION_LENGTH__+0x7e008a>
 	TCCR1A = 0x00;	// Set CTC mode
@@ -110,8 +110,8 @@ int main(void)
   b8:	ff cf       	rjmp	.-2      	; 0xb8 <main+0x38>
 
 000000ba <__vector_11>:
-    {
-    }
+	{
+	}
 }
 
 ISR(TIMER1_COMPA_vect)

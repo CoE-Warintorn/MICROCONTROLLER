@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>2pulse90diffphase</AssemblyName>
-    <Name>2pulse90diffphase</Name>
-    <RootNamespace>2pulse90diffphase</RootNamespace>
+    <AssemblyName>2Pulse_C</AssemblyName>
+    <Name>2Pulse_C</Name>
+    <RootNamespace>2Pulse_C</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
