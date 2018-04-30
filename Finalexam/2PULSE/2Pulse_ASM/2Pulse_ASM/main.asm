@@ -1,12 +1,11 @@
 ;
-; 2Pulse.asm
+; 2Pulse_ASM.asm
 ;
-; Created: 1/5/2561 0:36:23
+; Created: 1/5/2561 1:44:42
 ; Author : Warintorn
 ;
 
 
-; Replace with your application code
 .INCLUDE "m328pdef.inc"
 .DEF	tmp = r16
 .DEF	op	= r17

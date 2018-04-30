@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.7  D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse\2Pulse\main.asm Tue May 01 00:55:12 2018
+AVRASM ver. 2.2.7  D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm Tue May 01 01:45:14 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
-D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse\2Pulse\main.asm(10): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
+D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
-D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse\2Pulse\main.asm(10): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
+D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
                                  
                                  ;
                                  
@@ -987,14 +987,13 @@ D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse\2P
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 ; 2Pulse.asm
+                                 ; 2Pulse_ASM.asm
                                  ;
-                                 ; Created: 1/5/2561 0:36:23
+                                 ; Created: 1/5/2561 1:44:42
                                  ; Author : Warintorn
                                  ;
                                  
                                  
-                                 ; Replace with your application code
                                  .INCLUDE "m328pdef.inc"
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega328P.xml **********
@@ -1100,6 +1099,7 @@ D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse\2P
 00003f e012                      	ldi		op, 0x02
 000040 2701                      	eor		tmp, op
 000041 b908                      	out		PORTC, tmp
+000042 9518                      	reti
 
 
 RESOURCE USE INFORMATION

@@ -11,9 +11,9 @@
     <OutputFileExtension>.obj</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <Language>ASSEMBLY</Language>
-    <AssemblyName>2Pulse</AssemblyName>
-    <Name>2Pulse</Name>
-    <RootNamespace>2Pulse</RootNamespace>
+    <AssemblyName>2Pulse_ASM</AssemblyName>
+    <Name>2Pulse_ASM</Name>
+    <RootNamespace>2Pulse_ASM</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <EntryFile>$(MSBuildProjectDirectory)\main.asm</EntryFile>
     <KeepTimersRunning>true</KeepTimersRunning>

@@ -1,7 +1,7 @@
 /*
  * 2Pulse_C.c
  *
- * Created: 1/5/2561 0:32:58
+ * Created: 1/5/2561 1:43:09
  * Author : Warintorn
  */ 
 
@@ -35,4 +35,3 @@ ISR(TIMER1_COMPB_vect)
 {
 	PORTC ^= 0x02;
 }
-

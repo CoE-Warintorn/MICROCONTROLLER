@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\Debug\2Pulse_ASM.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>2Pulse_ASM.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>2Pulse_ASM.map</FILE>
+  <FILE>2Pulse_ASM.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm</FILE><LINE>22</LINE></start>
+  <compa_handler><FILE>D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm</FILE><LINE>59</LINE></compa_handler>
+  <compb_handler><FILE>D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm</FILE><LINE>66</LINE></compb_handler>
+  <main><FILE>D:\CoE\2560-2\242-309 Microcontroller\Work\Finalexam\2PULSE\2Pulse_ASM\2Pulse_ASM\main.asm</FILE><LINE>56</LINE></main>
+ </LABELS>
+</ASSEMBLER_INFO>
